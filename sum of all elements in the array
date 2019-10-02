@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SumArrayElements
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Write a program in C# to find the sum of all elements of the array.
+
+            int number = 0;
+            Console.WriteLine("Please enter how many elements you want to enter in the Array: \n");
+            number = int.Parse(Console.ReadLine());
+            int[] arraySum = new int[number];
+            for (int i = 0; i < number; i++)
+            {
+                arraySum[i] = int.Parse(Console.ReadLine());
+            }
+            ArraySum();
+            Console.ReadKey();
+
+            void ArraySum()
+            {
+                Console.WriteLine("\n \n \n ");
+                int temp = 0;
+                foreach (int i  in arraySum)
+                {
+                    temp = temp + i;
+                    
+                }
+                Console.Write( "Sum of Array = "+ temp);
+            }
+
+        }
+    }
+}
