@@ -1,0 +1,105 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ Write a program in C to merge two arrays of differnt  size sorted in decending order
+ Test Data :
+Input the number of elements to be stored in the first array :3
+Input 3 elements in the array :
+element - 0 : 9
+element - 1 : 1
+element - 2 : 8
+element - 2 : 10
+Input the number of elements to be stored in the second array :3
+Input 3 elements in the array :
+element - 0 : 7
+element - 1 : 6
+element - 2 : 7
+Expected Output :
+The merged array in decending order is :
+10 9 8 7 7 6 1
+     */
+namespace ArrayPractice
+
+{
+    class Merge2ArrayDESC
+    {
+
+        public static int[] MergeArray(int[] array1, int[] array2)
+        {
+            int i, j;
+            int[] array3 = new int[array1.Length + array2.Length];
+            for ( i = 0; i < array1.Length; i++)
+            {
+                array3[i] = array1[i];
+            }
+            for ( j = 0; j < array2.Length; j++)
+            {
+                array3[i] = array2[j];
+                    i++;
+            }
+            return array3;
+        }
+        public static int[] Merge2SameArrayDESC(int []array1, int[] array2)
+        {
+            array1 = MergeArray(array1, array2);
+            int temp = 0;
+            
+            for (int i=0; i < array1.Length; i++)
+                for(int j=i;j<array1.Length;j++)
+            {
+                if(array1[i]<= array1[j])
+                {
+                        temp = array1[i];
+                        array1[i] = array1[j];
+                        array1[j] = temp;
+                }
+            }
+
+            return array1;
+        }
+        public static void Print(int[] array1)
+        {
+            //if (arrayCopied != null)
+            Console.WriteLine("Array in desc order : \n");
+            foreach (int i in array1)
+            {
+                Console.Write(i+ " ");
+            }
+
+        }
+
+        static void Main(string[] args)
+        {
+            int number = 0;
+            Console.WriteLine("Please enter how many elements you want to enter in the Array: \n");
+            number = int.Parse(Console.ReadLine());
+            int[] array1 = new int[number];
+          
+            // Input first Arrray
+            Console.WriteLine("Please enter values in the Array1: \n");
+            for (int i = 0; i < number; i++)
+            {
+                array1[i] = int.Parse(Console.ReadLine());
+            }
+            //input 2nd array
+            
+            Console.WriteLine("please enter how many elements you want to enter in the array: \n");
+            number = int.Parse(Console.ReadLine());
+            int[] array2 = new int[number];
+            Console.WriteLine("please enter values in the array2: \n");
+            for (int j = 0; j < number; j++)
+            {
+                array2[j] = int.Parse(Console.ReadLine());
+            }
+
+
+            array1 = Merge2SameArrayDESC(array1,array2);
+            Print(array1);
+            Console.ReadKey();
+
+        }
+    }
+}
