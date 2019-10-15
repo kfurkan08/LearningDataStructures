@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+// Write a program to which'll take a string and return if its Palindrome
+namespace Plaind
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pa= "noon";
+            Console.Write("Input string = "+ pa.ToString() + "\n");
+            Console.WriteLine("Is this a palindrome? " +IsPalindrome(pa));
+            Console.ReadKey();
+        }
+        public static bool IsPalindrome(string s)
+        {
+            int length = s.Length;
+            char[] result = new char[length];
+            for (int counter = 0; counter < length; counter++)
+            {
+                //Console.WriteLine(s[s.Length - counter - 1]);
+                result[counter] = s[s.Length - counter - 1];
+            }
+            int i ;
+            for (i = 0; i < length; i++)
+            {
+                if (s[i] != result[i])
+                {
+                    return false;
+                }
+
+                Console.WriteLine("palindrome string " + s[i], "\n \n");
+            }      
+               
+                return true;
+            
+        }
+
+    }
+}
