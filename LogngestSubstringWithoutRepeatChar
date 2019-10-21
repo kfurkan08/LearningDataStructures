@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+namespace LogngestSubstringWithoutRepeatChar
+{
+    class Program
+    {
+        static int LogngestSubstringWithoutRepeatChar1(string str)
+        {
+            int i, j=0; 
+            //count = str.Length;
+            int maxLength=0;
+            HashSet<char> myhashset = new HashSet<char>();
+            for (i = 0; i < str.Length & j<str.Length ; )
+            {
+                if (!myhashset.Contains(str[j]))
+                {
+                    myhashset.Add(str[j]);
+                    j++;
+                    maxLength = Math.Max(maxLength, j - i);
+                }
+                else
+                {
+                    myhashset.Remove(str[i]);
+                    i++;
+                }
+                    
+            }
+            return maxLength;
+        }
+        static void Main(string[] args)
+        {
+            string s;
+            int len;
+            
+            //s=Console.ReadLine();
+            s = "pwwkew";
+            Console.WriteLine("\n Enter a string: "+ s);
+            len = LogngestSubstringWithoutRepeatChar1(s);
+            Console.WriteLine(len);
+            Console.ReadKey();
+
+        }
+    }
+}
